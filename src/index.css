@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #08080a;
+  --bg-secondary: #0d0d10;
+  --bg-card: #121218;
+  --bg-card-hover: #1a1a22;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --accent: #ff6b2c;
+  --accent-light: #ff8f5c;
+  --accent-dark: #e55a1f;
+  --accent-glow: rgba(255, 107, 44, 0.5);
+  --secondary: #fbbf24;
+  --tertiary: #f97316;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-accent: rgba(255, 107, 44, 0.3);
+  --gradient-primary: linear-gradient(135deg, #ff6b2c 0%, #fbbf24 50%, #ff6b2c 100%);
+  --gradient-hero: linear-gradient(135deg, rgba(255, 107, 44, 0.15) 0%, rgba(251, 191, 36, 0.1) 50%, transparent 100%);
+}
+
+body {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgba(255, 107, 44, 0.3);
+  color: var(--text-primary);
+}
+
+/* Global Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px var(--accent-glow), 0 0 40px rgba(255, 107, 44, 0.2); }
+  50% { box-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(255, 107, 44, 0.3); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes data-flow {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100px); opacity: 0; }
+}
+
+@keyframes border-glow {
+  0%, 100% { border-color: rgba(255, 107, 44, 0.3); }
+  50% { border-color: rgba(255, 107, 44, 0.6); }
+}@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
