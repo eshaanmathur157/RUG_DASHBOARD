@@ -16,7 +16,11 @@ export default defineConfig({
         target: 'ws://localhost:3001',
         ws: true
       }
-    }
+    },
+    host: '0.0.0.0',
+    allowedHosts: [
+      'miyoko-candylike-estell.ngrok-free.dev'
+    ]
   }
 })
 

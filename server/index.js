@@ -13,6 +13,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from React build in production
+if (process.env.NODE_ENV === 'production') {
+  const buildPath = path.join(__dirname, '../dist');
+  app.use(express.static(buildPath));
+  console.log('Serving static files from:', buildPath);
+}
+
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server, path: '/ws' });
 
@@ -499,6 +506,13 @@ app.put('/api/user/:username/pools/:poolAddress', (req, res) => {
 
   res.json({ success: true, pool: user.pools[poolIndex] });
 });
+
+if (process.env.NODE_ENV === 'production') {
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/index.html'));
+  });
+}
+
 
 // Start server
 const PORT = process.env.PORT || 3001;
